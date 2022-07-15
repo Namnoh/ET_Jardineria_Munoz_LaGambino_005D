@@ -7,9 +7,7 @@ from  .Carrito import Carrito
 from .context_processor import costo_envio, total_carrito
 from datetime import date, timedelta
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm
-from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
