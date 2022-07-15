@@ -1,0 +1,30 @@
+from django.urls import path
+from .views import detalleCli, historialCli, register, agregar_producto, carrito, detalle, eliminar_producto, guardar_boleta, historial, home,galeria, limpiar_carrito, restar_producto,somos,utilidades,contacto,miembros,showProd,formcrear_prod,formmod_prod,del_prod,formcrear_cust,showCustom, formmod_cust, del_cust
+
+urlpatterns = [
+    path('', home, name="home"),
+    path('galeria/', galeria, name="galeria"),
+    path('somos/', somos, name="somos"),
+    path('utilidades/', utilidades, name="utilidades"),
+    path('contacto/', contacto, name="contacto"),
+    path('miembros/', miembros, name="miembros"),
+    path('showProd/', showProd, name="showProd"),
+    path('formcrear_prod/', formcrear_prod, name="formcrear_prod"),
+    path('formmod_prod/<id>', formmod_prod, name="formmod_prod"),
+    path('del_prod/<id>', del_prod, name="del_prod"),
+    path('formcrear_cust/', formcrear_cust, name="formcrear_cust"),
+    path('showCustom/', showCustom, name="showCustom"),
+    path('formmod_cust/<id>', formmod_cust, name="formmod_cust"),
+    path('del_cust/<id>',del_cust, name="del_cust"),
+    path('agregar/<int:producto_id>', agregar_producto, name="Add"),
+    path('eliminar/<int:producto_id>', eliminar_producto, name="Del"),
+    path('restar/<int:producto_id>', restar_producto, name="Sub"),
+    path('limpiar/', limpiar_carrito, name="Cls"),
+    path('carrito/', carrito, name="carrito"),
+    path('guardar_boleta/<int:user_id>', guardar_boleta, name="guardar_boleta"),
+    path('historial_compras/', historial, name="historial"),
+    path('detalle/<int:bol_id>', detalle, name="detalle"),
+    path('register/', register, name='register'),
+    path('historial_compras_cliente/<int:user_id>', historialCli, name="historialCli"),
+    path('detalle_cliente/<int:bol_id>', detalleCli, name="detalleCli"),
+]

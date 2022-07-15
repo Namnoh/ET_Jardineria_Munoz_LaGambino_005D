@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle de compras</title>
+  <link rel="icon" href="{% static 'img/ICON-ICO.ico' %}" type="ico" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"/>
+  <link rel="stylesheet" href="{% static 'css/mystyles.css' %}" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body.restringido {
+      background: rgba(0, 0, 0, 0.219) url("{% static 'img/restringido.jpg' %}");
+      background-blend-mode: darken;
+      background-position: center center;
+      background-repeat: repeat;
+      background-size: cover;
+    }
+    h1.restringido {
+      padding-top: 220px;
+      color: white;
+      text-align: center;
+      font-size: 40px;
+    }
+  </style>
+</head>
+{% if user.is_authenticated%}
+<body>
+    {% load static %}
+  <!-- NAV BAR -->
+  <nav id="main_nav" class="navbar navbar-expand-sm navbar-light">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#opciones"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- LOGO -->
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img
+            src="{% static 'img/ICON.png' %}"
+            width="40"
+            height="40"
+            alt="Icono_MagicFlowers"/>
+        </a>
+        <!-- ENLACES -->
+        <div class="collapse navbar-collapse" id="opciones">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" id="link" href="{% url 'home' %}">Principal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="link" href="{% url 'galeria' %}"
+                >Galería de Fotos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="link" href="{% url 'somos' %}"
+                >Quiénes somos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="link" href="{% url 'utilidades' %}"
+                >Utilidades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="link" href="{% url 'contacto' %}"
+                >Contáctanos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="link" href="{% url 'miembros' %}"
+                >Miembros</a>
+            </li>
+            {% if user.is_authenticated %}
+              {% if user.is_staff %}
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="link" data-toggle="dropdown" href="#">Adm. Clientes</a>
+                      <div class="dropdown-menu">
+                          <a class="nav-link" id="link" href="{% url 'formcrear_cust' %}">Registrar Cliente</a>
+                          <a class="nav-link" id="link" href="{% url 'showCustom' %}">Mostrar Clientes</a>
+                  </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="link" data-toggle="dropdown" href="#">Adm. Productos</a>
+                      <div class="dropdown-menu">
+                          <a class="nav-link" id="link" href="{% url 'formcrear_prod' %}">Crear Producto</a>
+                          <a class="nav-link" id="link" href="{% url 'showProd' %}">Mostrar Productos</a>
+                      </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="link" data-toggle="dropdown" href="#">Bienvenid@: {{user.username}}</a>
+                      <div class="dropdown-menu">
+                          <a class="nav-link" id="link" href="{%  url 'carrito' %}">Carrito</a>
+                          <a class="nav-link" id="link" href="{%  url 'historial' %}">Historial</a>
+                          <a class="nav-link" id="link" href="{%  url 'logout' %}">Cerrar Sesión</a>
+                      </div>
+                  </li>
+              {% else %}
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="link" data-toggle="dropdown" href="#">Bienvenid@: {{user.username}}</a>
+                      <div class="dropdown-menu">
+                          <a class="nav-link" id="link" href="{%  url 'carrito' %}">Carrito</a>
+                          <a class="nav-link" id="link" href="{%  url 'historialCli' user.id %}">Historial</a>
+                          <a class="nav-link" id="link" href="{%  url 'logout' %}">Cerrar Sesión</a>
+                      </div>
+                  </li>
+              {% endif %}
+            {% else %}
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="link"
+                data-toggle="dropdown"
+                href="#"
+                >USUARIO</a>
+              <div class="dropdown-menu">
+                <a class="nav-link" id="link" href="{% url 'login' %}"
+                  >Iniciar Sesión</a>
+              </div>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+  </nav>
+
+  <!-- CONTENEDOR DETALLE -->
+  <div class="container">
+    <h3 class="utility" onmouseover="mouseover(this)" onmouseout="mouseout(this)">Detalle de Compras: {{boleta.bolId}} | {{user.username}}</h3>
+    <br>
+    <div class="table-responsive">
+      <table class="table table-striped">
+          <tbody>
+              <tr>
+                  <th>Id Compra:</th>
+                  <td>{{boleta.bolId}}</td>
+              </tr>
+              <tr>
+                <th>Cliente Relacionado a la Compra:</th>
+                <td>{{boleta.bolCliId}} | {{boleta.bolCliId.first_name}} {{boleta.bolCliId.last_name}}</td>
+              </tr>
+              <tr>
+                  <th>Fecha Compra:</th>
+                  <td>{{boleta.bolDateC}}</td>
+              </tr>
+              <tr>
+                  <th>Fecha Entrega:</th>
+                  <td>{{boleta.bolDateE}}</td>
+              </tr>
+              <tr>
+                  <th>Productos:</th>
+                  <td>{{boleta.bolProd}}</td>
+              </tr>
+              <tr>
+                  <th>Cantidad Total:</th>
+                  <td>{{boleta.bolCant}}</td>
+              </tr>
+              <tr>
+                  <th>Valor Envio:</th>
+                  <td>$ {{boleta.bolEnvio}}</td>
+              </tr>
+              <tr>
+                  <th>Total Pagado:</th>
+                  <td>$ {{boleta.bolTotal}}</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+    <br>
+    <div class="row"><div class="col"><a href="{%  url 'historialCli' user.id %}" class="btn btn-danger">Volver</a></div></div>
+    <br><br>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container-footer">
+        <div class="content-foo">
+          <h4>SÍGUENOS</h4>
+          <p>
+            <a href="https://www.facebook.com" target="_blank"
+              ><img
+                src="{% static 'img/icons8-facebook-32.png' %}"
+                alt="Facebook icon by Icons8"
+                title="Facebook"/></a>
+            <a href="https://www.instagram.com" target="_blank"
+              ><img
+                src="{% static 'img/icons8-instagram-32.png' %}"
+                alt="Instagram icon by Icons8"
+                title="Instagram"/></a>
+            <a href="https://www.twitter.com" target="_blank"
+              ><img
+                src="{%static 'img/icons8-twitter-32.png' %}"
+                alt="Twitter icon by Icons8"
+                title="Twitter"/></a>
+          </p>
+        </div>
+        <div class="content-foo">
+          <h4>CONTACTO</h4>
+          <p>Dirección Verdadera #1234</p>
+          <p>2212345678</p>
+          <p>contacto@magicflowers.cl</p>
+        </div>
+    </div>
+    <h2 class="titulo-final">&copy; LaGambino - Muñoz</h2>
+  </footer>
+</body>
+{% else %}
+  <body class="restringido">
+    {% load static %}
+    <div class="container">
+      <h1 class="restringido" onmouseover="restringidoover(this)" onmouseout="restringidoout(this)">NO TIENES PERMISOS <br> PARA PASAR POR ESTE LUGAR</h1>
+    </div>
+    <script>
+      function restringidoover(e) {
+        e.style.color = "rgb(241, 42, 24)";
+        e.style.fontSize = "60px";
+        e.style.transitionDuration = "1.5s";
+      };
+
+      function restringidoout(e) {
+        e.style.color = "white";
+        e.style.fontSize = "40px";
+      };
+    </script>
+  </body>
+{% endif %}
+</html>

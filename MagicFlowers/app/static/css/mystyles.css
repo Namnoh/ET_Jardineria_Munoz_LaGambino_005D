@@ -1,0 +1,375 @@
+/*  MAIN NAV */
+#main_nav {
+    background-color: #68c45c62;
+    border-bottom: 2px solid #68c45c62;
+}
+
+#link {
+    color: black;
+}
+
+#link:hover {
+    color: rgba(173, 58, 167, 0.801);
+    font-weight: bold;
+}
+
+
+/* PAGE NAV*/
+.page_nav {
+    padding: 30px 0 30px 0;
+}
+
+.page-item.active .page-link {
+    background-color: #4b8d42da;
+    border-color: #4e9445e1;
+}
+
+/* MAIN */
+.container_main {
+    margin: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 40px;
+}
+
+
+/* CARRUSEL */
+.carousel-indicators {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.carousel_title {
+    padding-top: 10px;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.548);
+}
+
+.carousel_p {
+    margin-bottom: 0;
+    padding: 0 0 5px 0;
+    background-color: rgba(0, 0, 0, 0.548);
+}
+
+
+/* SECCIÓN QUÉ OFRECEMOS */
+.ofrecemos {
+    margin: 50px 0 0 0;
+    text-align: center;
+    background-color: #68c45c62;
+    border-radius: 5px;
+    color: rgb(39, 39, 39);
+    border: 2px solid #68c45c62;
+}
+
+
+.ofrecemos h4 {
+    background-color: white;
+    padding: 8px;
+    margin: 0;
+    font-size: 25px;
+}
+
+.parrafos-ofrecemos {
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.parrafos-ofrecemos p{
+    max-width: 40%;
+    text-align: justify;
+}
+
+
+/* CARDS */
+.card_container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.card-body {
+    padding: 10px;
+    text-align: center;
+}
+
+.col-md {
+    padding-top: 30px;
+
+}
+
+.card {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* EFECTO HOVER */
+.hover-galeria{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: rgba(173, 58, 167, 0.801);
+    transition: transform .5s;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hover-galeria img{
+    width: 20%;
+    height: 30%;
+}
+
+.hover-galeria p{
+    color: white;
+    padding-top: 30px;
+}
+
+.card:hover .hover-galeria{
+    transform: scale(1);
+}
+
+
+/* SECCIÓN QUIENES SOMOS */
+.banner {
+    padding: 30px 0 30px 0;
+}
+
+.banner img{
+    width: 100%;
+    box-shadow: 0 0 4px 0;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 40px 0 40px 0;
+    align-items: center;
+}
+
+.info img {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.texto {
+    max-width: 35%;
+    text-align: justify;
+}
+
+.texto h4{
+    max-width: 100%;
+}
+
+.info-vid {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 0 40px 0;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.video-box {
+    width: 100%;
+    max-width: 720px;
+    height: 300px;
+    margin: auto;
+}
+
+
+/* FOOTER */
+footer{
+    background: #202020;
+    padding: 30px 0 30px 0;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+.container-footer{
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    margin: auto;
+    /* padding-bottom: 50px; */
+    border-bottom: 1px solid #ccc;
+}
+
+.content-foo h4{
+    color: white;
+    border-bottom: 3px solid #68c45cc4;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.content-foo p{
+    color: #ccc;
+}
+
+.titulo-final{
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0 0 0;
+    color: #9e9797;
+}
+
+/* FLEX BOX UTILIDADES */
+.flex_main_box{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+    flex-direction: column;
+}
+
+.flex_box {
+    display:flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.utility_div {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.utility {
+    margin-top: 30px;
+    font-size: 35px;
+}
+
+/* DOM 3. NAME */
+#real_name {
+    text-align: center;
+    color: rgba(173, 58, 167, 0.801);
+}
+
+/* CSS PARA CALCULADORA */
+.calculadora{
+    display:block;
+    margin:0 auto;
+    padding:20px;
+    background-color:#2980b9;
+    width:325px;
+    height:500px;
+    border-radius: 25px;
+}
+
+#resultado{
+    display:block;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background-color:white;
+    border-radius: 25px;
+    overflow: auto;
+}
+
+.buttons {
+    display: flex;
+}
+
+.calculadora td button{
+  width:70px;
+  height: 70px;
+  font-size: 25px;
+}
+
+#p_button {
+    margin: 0;
+}
+
+/* API CSS */
+.weather {
+    text-align: center;
+}
+
+/* LOGIN */
+/* #UNIQUE {
+    border-color: rgba(97, 32, 94, 0.801);
+    background-color:rgba(173, 58, 167, 0.801);
+    float:left;
+} */
+
+
+@media screen and (max-width: 500px){
+    .container_main {
+        margin: 30px 0 30px 0;
+    }
+
+    .parrafos-ofrecemos {
+        flex-wrap: wrap;
+    }
+
+    .parrafos-ofrecemos p{
+        max-width: 100%;
+    }
+
+    .banner img{
+        width: 100%;
+        box-shadow: 0 0 4px 0;
+    }
+
+    .info {
+        display: flex;
+        padding: 20px 0 40px 0;
+        flex-direction: column;
+    }
+
+    .info img {
+        display: none;
+    }
+
+    .texto {
+        max-width: 80%;
+        text-align: justify;
+    }
+
+    .flex_box {
+        display:flex;
+        flex-direction: column;
+    }
+
+    .calculadora{
+        width: 300px;
+        height: 450px;
+    }
+
+    .calculadora td button{
+        width:63px;
+        height: 63px;
+        font-size: 21px;
+    }
+
+    /* .utility_div {
+        display: block;
+    } */
+}
+
+@media screen and (max-width: 900px) and (min-width: 768px) {
+    .texto {
+        max-width: 45%;
+        text-align: justify;
+    }
+}
