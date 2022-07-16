@@ -191,7 +191,10 @@ def historial(request):
     return render(request, 'historial.html', context)
 
 def detalle(request, bol_id):
-    boleta = Boleta.objects.get(bolId=bol_id)
+    try:
+        boleta = Boleta.objects.get(bolId=bol_id)
+    except Boleta.DoesNotExist:
+        boleta = None
     fecha = request.POST.get('bolDateE')
     if request.method == 'POST':
         if fecha != None:
@@ -240,7 +243,6 @@ def register(request):
             user.save()
 
             # redirect user to home page
-            messages.success(request, "Se ha registrado exitosamente.")
             return redirect('home')
     else:
         form = SignUpForm()
